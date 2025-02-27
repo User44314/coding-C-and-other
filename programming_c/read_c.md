@@ -9,7 +9,20 @@
 
 * printf("%ld\n", nc); Спецификация преобразования %ld сообщает printf, что соответствующий аргумент — длинное целое число.
 
-
+The complete set of escape sequences is
+* \a alert (bell) character 
+* \\ backslash
+* \b backspace 
+* \? question mark
+* \f formfeed 
+* \' single quote
+* \n newline 
+* \" double quote
+* \r carriage return 
+* \ooo octal number
+* \t horizontal tab 
+* \xhh hexadecimal number
+* \v vertical tab
 
 ## 1.1.
 
@@ -49,3 +62,24 @@ c = getchar(); переменная c содержит следующий сим
 ## 6.6
 
 значение называется EOF, от ``конец файла''. use CTRL-D (unix-style systems) or CTRL-Z (Windows)
+
+## 7.7
+
+ Operators                           Associativity
+() [] -> .                           left to right
+! ~ ++ -- + - * (type) sizeof        right to left
+* / %                                left to right
++ -                                  left to right
+<< >>                                left to right
+< <= > >=                            left to right
+== !=                                left to right
+&                                    left to right
+^                                    left to right
+|                                    left to right
+&&                                   left to right
+||                                   left to right
+?:                                   right to left
+= += -= *= /= %= &= ^= |= <<= >>=    right to left
+,                                    left to right
+
+
