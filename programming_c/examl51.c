@@ -303,71 +303,32 @@ void unGetch(int);
 /* Getop: get next operator or numeric operand. */
 int Getop(char s[])
 {
-    int i = 0;
     int c;
-    int next;
+    static int buf = EOF;
 
-    /* Skip whitespace */
-    while ((s[0] = c = getch()) == ' ' || c == '\t')
-    {
-        ;
-    }
-    s[1] = '\0';
-
-    if (isalpha(c))
-    {
-        i = 0;
-        while (isalpha(s[i++] = c))
-        {
-            c = getch();
-        }
-        s[i - 1] = '\0';
-        if (c != EOF)
-            unGetch(c);
-        return IDENTIFIER;
-    }
-
-    /* Not a number but may contain a unary minus. */
-    if (!isdigit(c) && c != '.' && c != '-')
-    {
-        /* 4-6 Deal with assigning a variable. */
-        if ('=' == c && '\n' == (next = getch()))
-        {
-            unGetch('\0'); //
-            return c;
-        }
-        if ('\0' == c)
-            return ENDSTRING;
-
+    if (buf != EOF && buf != ' ' && buf != '\t'
+        && !isdigit(buf) && buf != '.') {
+        c = buf;
+        buf = EOF;
         return c;
     }
-
-    if (c == '-')
-    {
-        next = getch();
-        if (!isdigit(next) && next != '.')
-        {
-            return c;
-        }
-        c = next;
-    }
-    else
-    {
-        c = getch();
-    }
-
-    while (isdigit(s[++i] = c))
-    {
-        c = getch();
-    }
-    if (c == '.') /* Collect fraction part. */
-    {
-        while (isdigit(s[++i] = c = getch()))
+    if (buf == EOF || buf == ' ' || buf == '\t') 
+        while ((*s = c = getch()) == ' ' || c == '\t')
             ;
-    }
-    s[i] = '\0';
-    if (c != EOF)
-        unGetch(c);
+    else 
+        *s = c = buf;
+    buf = EOF;
+    *(s + 1) = '\0';
+    if (!isdigit(c) && c != '.')
+        return c;       /* not a number */
+    if (isdigit(c))     /* collect integer part */
+        while (isdigit(*++s = c = getch()))
+            ;
+    if (c == '.')       /* collect fraction part */
+        while (isdigit(*++s = c = getch()))
+            ;
+    *++s = '\0';
+    buf = c;
     return NUMBER;
 }
 

@@ -6,7 +6,7 @@ blanks on the left if necessary to make it wide enough. */
 
 #define MAXIMUM 50
 
-void itoa(int n, char s[], int width); // n = number, s = string, width = minimum field width
+void my_itoa(int n, char s[], int width); // n = number, s = string, width = minimum field width
 void reverse(char s[]);
 
 int main()
@@ -14,12 +14,12 @@ int main()
     char s[MAXIMUM];
     int n = -123456;
     int width = 15;
-    itoa(n, s, width);
+    my_itoa(n, s, width);
     printf("%s\n", s);
     return 0;
 }
 
-void itoa(int n, char s[], int width)
+void my_itoa(int n, char s[], int width)
 {
     int i = 0, sign, gap; // gap = difference between width and strlen(s)
     if ((sign = n) < 0) // record sign
