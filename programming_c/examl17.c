@@ -10,7 +10,7 @@ Write a loop equivalent to the for loop above without using && or || . */
 
 #define MAX_STRING_LENGTH 100
 /* atoi: convert s to integer */
-int atoi(char s[])
+int my_atoi(char s[])
 {
   int i, n;
   n = 0;
@@ -43,7 +43,7 @@ int main(void)
   s[i] = '\0'; /* terminate the string */
 
   printf("The string is: %s\n", s);
-  int a = atoi(s);
+  int a = my_atoi(s);
   printf("The integer is: %d\n", a); 
   
   double xx = 2.2;

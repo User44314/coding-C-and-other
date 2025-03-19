@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <ctype.h>
 /* atoi: convert s to integer; version 2 */
-int atoi(char s[])
+int my_atoi(char s[])
 {
     int i, n, sign;
     for (i = 0; isspace(s[i]); i++) /* skip white space */
@@ -16,7 +16,7 @@ int atoi(char s[])
 int main()
 {
     char s[] = "  -123";
-    printf("%d\n", atoi(s));
+    printf("%d\n", my_atoi(s));
     return 0;
 }
 // Output: -123
