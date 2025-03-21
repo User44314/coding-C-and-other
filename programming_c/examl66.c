@@ -85,7 +85,7 @@ int main(int argc, char *argv[])
   return 0;
 }
 
-char *my_getline(char *str, int str_max)
+char *my_getline(char *str, int str_max) // Get a line of input from the user.
 {
   char c;
   /*
@@ -107,7 +107,7 @@ char *my_getline(char *str, int str_max)
   return str;
 }
 
-char *my_itoa(int num, char *str)
+char *my_itoa(int num, char *str) // Convert integer to string.
 {
   char *ls = str;
   do
@@ -118,7 +118,7 @@ char *my_itoa(int num, char *str)
   return str;
 }
 
-int my_atoi(char *str)
+int my_atoi(char *str) // Convert string to integer.
 {
   int n, sign;
   while (isspace(*str))
@@ -137,7 +137,7 @@ int my_atoi(char *str)
   return n * sign;
 }
 
-char *strrev(char *str)
+char *strrev(char *str) // Reverse a string.
 {
   int i;
   char c;
@@ -160,12 +160,12 @@ char *strrev(char *str)
   return str;
 }
 
-int strindex(char *s, char *t)
+int strindex(char *s, char *t) // Find the index of a substring in a string.
 {
   int i, j;
-  char *sb = s;
-  char *ss = s;
-  char *tb = t;
+  char *sb = s; /* Base string pointer. */
+  char *ss = s; /* Substring pointer. */
+  char *tb = t; /* Temporary pointer. */
   for (i = 0; *sb != '\0'; i++, sb++)
   {
     tb = t;  /* Reset the pointer to the beginning of the string. */
@@ -182,7 +182,7 @@ int strindex(char *s, char *t)
   return -1;
 }
 
-int getop(char *str)
+int getop(char *str) // Get the next operator or operand.
 {
   int c;
   while ((*str++ = c = getch()) == ' ' || c == '\t')
@@ -218,12 +218,12 @@ int getop(char *str)
 char buf[BUFSIZE]; /* The Stack */
 int bufp = 0;      /* Top Position on the stack */
 
-int getch(void)
+int getch(void) /* Get a character from the stack or from the user. */
 {
   return (bufp > 0) ? buf[--bufp] : getchar();
 }
 
-void ungetch(int c)
+void ungetch(int c) /* Return a character to the stack. */
 {
   if (bufp >= BUFSIZE)
   {
