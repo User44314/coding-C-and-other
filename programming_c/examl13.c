@@ -2,7 +2,7 @@
 
 #define MAXLINE 1000 /* max input line size */
 char line[MAXLINE];  // current input line
-int getline(char line[], int maxline); // read a line into s, return length
+int my_getline(char line[], int maxline); // read a line into s, return length
 
 /* print the longest input line */
 int main()
@@ -11,7 +11,7 @@ int main()
   int location, spaceholder; // location is the current location in the line, spaceholder is the location of the last space
   const int FOLDLENGTH = 70; /* The max length of a line */
 
-  while ((len = getline(line, MAXLINE)) > 0)
+  while ((len = my_getline(line, MAXLINE)) > 0)
   {
     if (len < FOLDLENGTH)
     {
@@ -44,7 +44,7 @@ int main()
 }
 
 /* getline: read a line into s, return length */
-int getline(char s[], int lim)
+int my_getline(char s[], int lim)
 {
   int c, i;
   for (i = 0; i < lim - 1 && (c = getchar()) != EOF && c != '\n'; ++i)

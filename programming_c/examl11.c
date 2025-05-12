@@ -12,7 +12,7 @@ int sumnumberofspaces(int offset, int tabsize)
 }
 
 /* getline: read a line into s, return length */
-int getline(char s[], int lim)
+int my_getline(char s[], int lim)
 {
     int c, i;
     for (i = 0; i < lim - 1 && (c = getchar()) != EOF && c != '\n'; ++i)
@@ -33,7 +33,7 @@ int main()
   
     int i, j, k, l;
   
-    while(getline(Buffer, MAX_BUFFER) > 0)
+    while(my_getline(Buffer, MAX_BUFFER) > 0)
     {
       for(i = 0, l = 0; Buffer[i] != '\0'; i++)
       {

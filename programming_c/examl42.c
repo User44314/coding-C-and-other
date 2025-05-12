@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int getline(char line[], int max);
+int my_getline(char line[], int max);
 double my_atof(char s[]);
 
 #define MAXLINE 100
@@ -11,16 +11,16 @@ int main()
 {
     double sum, my_atof(char[]);
     char line[MAXLINE];
-    int getline(char line[], int max);
+    int my_getline(char line[], int max);
     sum = 0;
-    while (getline(line, MAXLINE) > 0)
+    while (my_getline(line, MAXLINE) > 0)
         printf("\t%g\n", sum += my_atof(line)); // %g is used to print floating-point numbers in either fixed or exponential notation, depending on the value
     // and the precision of the number.
     return 0;
 }
 
 /* getline: get line into s, return length */
-int getline(char s[], int lim)
+int my_getline(char s[], int lim)
 {
     int c, i;
     i = 0;

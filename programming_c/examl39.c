@@ -2,7 +2,7 @@
 
 #define MAXLINE 1000 /* maximum input line length */
 
-int getline(char line[], int maxline);        // function prototype
+int my_getline(char line[], int maxline);        // function prototype
 int strindex(char source[], char searchfor[]); // function prototype
 char pattern[] = "ould";                       // pattern to search for
 
@@ -11,7 +11,7 @@ int main()
 {
     char line[MAXLINE];
     int found = 0;
-    while (getline(line, MAXLINE) > 0)
+    while (my_getline(line, MAXLINE) > 0)
         if (strindex(line, pattern) >= 0)
         {
             printf("%s", line);
@@ -21,7 +21,7 @@ int main()
 }
 
 /* getline: get line into s, return length */
-int getline(char s[], int lim) // this function is similar to the getline() function in the stdio.h library
+int my_getline(char s[], int lim) // this function is similar to the getline() function in the stdio.h library
 {
     int c, i;
     i = 0;

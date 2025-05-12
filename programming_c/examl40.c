@@ -6,11 +6,11 @@ occurrence of t in s, or -1 if there is none. */
 
 #define MAXLINE 1000 /* maximum input line length */
 
-int getline(char line[], int maxline);        // function prototype
+int my_getline(char line[], int maxline);        // function prototype
 int strindex(char source[], char searchfor[]); // function prototype
 char pattern[] = "long";                       // pattern to search for
 
-int getline(char s[], int lim) // this function is similar to the getline() function in the stdio.h library
+int my_getline(char s[], int lim) // this function is similar to the getline() function in the stdio.h library
 {
     int c, i;
     i = 0;
@@ -40,7 +40,7 @@ int main()
     //printf("%d\n", strindex("I stopped dreaming a long long time ago", "long"));  1-st test
 	//return 0;
     char line[MAXLINE];
-    while (getline(line, MAXLINE) > 0)
+    while (my_getline(line, MAXLINE) > 0)
         {
             printf("%d\n", strindex(line, pattern));
 

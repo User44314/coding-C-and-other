@@ -9,7 +9,7 @@ char *lineptr[MAXLINES];
 int readlines(char *lineptr[], int maxlines, char lines[], int maxlen);
 void writelines(char *lineptr[], int nlines);
 void quicksort(char *lineptr[], int left, int right);
-int getline(char *s, int i);
+int my_getline(char *s, int i);
 
 int main(void)
 {
@@ -28,7 +28,7 @@ int main(void)
 	}
 }
 
-int getline(char s[], int lim)
+int my_getline(char s[], int lim)
 {
 	int c, i = 0;
 	while (i < lim - 1 && (c = getchar()) != EOF && c != '\n')
@@ -43,7 +43,7 @@ int readlines(char *lineptr[], int maxlines, char lines[], int maxlens)
 {
 	int len, nlines = 0;
 	char *p = lines;
-	while ((len = getline(p, maxlens + lines - p)) > 0)
+	while ((len = my_getline(p, maxlens + lines - p)) > 0)
 		if (nlines < maxlines)
 		{
 			p[len - 1] = '\0';
