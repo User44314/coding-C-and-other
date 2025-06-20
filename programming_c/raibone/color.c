@@ -16,8 +16,7 @@ int random_zero_or_one() { return rand() % 2; }
 int random_pure_color_code() { return rand() % MAX_COLOR; }
 
 int random_full_color_code() {
-  int result = random_pure_color_code() +
-               random_zero_or_one() * LIGHT_CORRECTION + BASE_CODE;
+  int result = random_pure_color_code() + random_zero_or_one() * LIGHT_CORRECTION + BASE_CODE;
   return result;
 }
 
